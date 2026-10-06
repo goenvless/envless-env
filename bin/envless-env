@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$autoload = $GLOBALS['_composer_autoload_path'] ?? null;
+
+foreach ([is_string($autoload) ? $autoload : '', __DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $candidate) {
+    if ($candidate !== '' && is_file($candidate)) {
+        require $candidate;
+
+        break;
+    }
+}
+
+$given = $_SERVER['argv'] ?? [];
+
+exit(Envless\Env\Types\Command::run(array_values(array_filter(array_slice(is_array($given) ? $given : [], 1), is_string(...))), STDOUT, STDERR));

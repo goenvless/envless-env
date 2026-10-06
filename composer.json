@@ -1,0 +1,47 @@
+{
+    "name": "envless/env",
+    "description": "The Envless runtime for PHP. Loads your environment from Envless when your app starts, decrypts it on the machine that runs it, and hands it to your code typed, without writing plaintext to disk.",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": [
+        "envless",
+        "env",
+        "dotenv",
+        "env vars",
+        "environment variables",
+        "secrets",
+        "secret management",
+        "encrypted secrets",
+        "config",
+        "runtime",
+        "laravel",
+        "symfony"
+    ],
+    "homepage": "https://envless.cloud",
+    "authors": [
+        {
+            "name": "Envless",
+            "homepage": "https://envless.cloud"
+        }
+    ],
+    "support": {
+        "docs": "https://envless.cloud/docs/env-php/overview",
+        "issues": "https://envless.cloud/contact"
+    },
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "envless/sdk": "~0.0.1"
+    },
+    "suggest": {
+        "symfony/dependency-injection": "Lets Symfony resolve %env()% parameters from Envless through Envless\\Env\\Symfony\\EnvVarLoader."
+    },
+    "bin": [
+        "bin/envless-env"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Envless\\Env\\": "src/"
+        }
+    }
+}
